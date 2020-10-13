@@ -59,3 +59,10 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.label.setText(_translate("MainWindow", "姓名："))
         self.pushButton.setText(_translate("MainWindow", "关闭"))
+if __name__ == '__main__':
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    w = QtWidgets.QMainWindow()
+    Ui_MainWindow().setupUi(w)
+    w.show()
+    sys.exit(app.exec_())

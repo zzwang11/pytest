@@ -1,7 +1,7 @@
 import sys
 
 from PyQt5.QtWidgets import QApplication, QMainWindow
-import StatusBar
+
 
 
 if __name__ == '__main__':

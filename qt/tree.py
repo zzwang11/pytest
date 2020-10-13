@@ -24,5 +24,3 @@ if __name__ == '__main__':
     w = mainwindow()
     w.show()
     sys.exit(app.exec_())
-
-
