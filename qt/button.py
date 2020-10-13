@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sys
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -30,6 +30,7 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.textBrowser.setText("??nizaiganshenme")
 
         self.retranslateUi(MainWindow)
         self.pushButton.clicked['bool'].connect(self.textBrowser.setDisabled)
@@ -39,3 +40,10 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
         self.pushButton.setText(_translate("MainWindow", "PushButton"))
+
+if __name__ == '__main__':
+    myapp = QtWidgets.QApplication(sys.argv)
+    a = QtWidgets.QMainWindow()
+    Ui_MainWindow().setupUi(a)
+    a.show()
+    sys.exit(myapp.exec_())

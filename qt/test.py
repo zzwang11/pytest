@@ -8,7 +8,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import sys
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
@@ -75,3 +75,10 @@ class Ui_MainWindow(object):
         self.toolButton.setText(_translate("MainWindow", "..."))
         self.radioButton.setText(_translate("MainWindow", "RadioButton"))
         self.checkBox.setText(_translate("MainWindow", "CheckBox"))
+
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    w = QtWidgets.QMainWindow()
+    Ui_MainWindow().setupUi(w)
+    w.show()
+    sys.exit(app.exec_())
