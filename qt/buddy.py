@@ -65,3 +65,10 @@ class Ui_MainWindow(object):
         self.label.setText(_translate("MainWindow", "name(&A):"))
         self.label_2.setText(_translate("MainWindow", "sex(&B):"))
         self.label_3.setText(_translate("MainWindow", "age(&C):"))
+if __name__ == '__main__':
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    w = QtWidgets.QMainWindow()
+    Ui_MainWindow().setupUi(w)
+    w.show()
+    sys.exit(app.exec_())

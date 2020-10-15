@@ -1,4 +1,4 @@
-import visa
+import pyvisa as visa
 
 rm = visa.ResourceManager()
 inst = rm.open_resource('zzz')

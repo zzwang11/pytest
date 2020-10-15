@@ -200,10 +200,31 @@
 #
 # a = eval('23566/22')
 # print(a)
+#
+# a = {'one': 1, 'two': 2, 'three': 3}
+# b = dict(one=1, two=2, three=3)
+# c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
+# print(a)
+# print(b)
+# print(c)
 
-a = {'one': 1, 'two': 2, 'three': 3}
-b = dict(one=1, two=2, three=3)
-c = dict(zip(['one', 'two', 'three'], [1, 2, 3]))
-print(a)
-print(b)
-print(c)
+
+import numpy
+import matplotlib.pyplot as plt
+a = [0.8333333333,1.2]
+
+
+for j in range(100):
+    n = 1
+    c = numpy.zeros(30000)
+    for i in range(30000):
+        b = numpy.random.randint(2)
+        n *= a[b]
+        c[i] = n
+
+    plt.plot(c)
+
+plt.xlabel('time')
+plt.ylabel('money')
+plt.yscale('log')
+plt.show()

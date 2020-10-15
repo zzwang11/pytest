@@ -6,7 +6,7 @@ import sys
 class lineedit(QWidget):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('01')
+        self.setWindowTitle('Line edit')
 
         self.lin1 = QLineEdit()
         lin2 = QLineEdit()
@@ -17,7 +17,7 @@ class lineedit(QWidget):
         lin2.setInputMask('HH-HH-HH-HH-HH;')
         lin3.setPlaceholderText('password')
         lin3.setEchoMode(QLineEdit.Password)
-        lin4.setValidator(QDoubleValidator(1.33, 11.33,2))
+        lin4.setValidator(QDoubleValidator(1.11, 11.33, 2))
         lin5.textChanged.connect(self.txtchange)
         lin5.editingFinished.connect(self.finishi)
         fo = QFormLayout()
@@ -26,9 +26,10 @@ class lineedit(QWidget):
         fo.addRow('password:',lin3)
         fo.addRow('limit:',lin4)
         fo.addRow('ssss', lin5)
+
         self.setLayout(fo)
     def txtchange(self,text):
-        print('change'+text)
+        print('change   '+text)
     def finishi(self):
         print('yishuru')
 

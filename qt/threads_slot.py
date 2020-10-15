@@ -1,8 +1,9 @@
-from PyQt5.QtCore import QThread, pyqtSignal, QDateTime, QObject
-from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit
+from PyQt5.QtCore import QThread, pyqtSignal, QDateTime, QObject, Qt
+from PyQt5.QtWidgets import QApplication, QDialog, QLineEdit, QTextEdit
+from PyQt5.QtGui import QTextCursor
 import time
 import sys
-
+import datetime
 
 class BackendThread(QObject):
     # 通过类成员对象定义信号
@@ -11,19 +12,21 @@ class BackendThread(QObject):
     # 处理业务逻辑
     def run(self):
         while True:
-            data = QDateTime.currentDateTime()
-            currTime = data.toString("yyyy-MM-dd hh:mm:ss")
+            currTime = datetime.datetime.now().strftime("%Y-%m-%d   %H-%M-%S.%f")[:-3]
+            # data = QDateTime.currentDateTime()
+            # currTime = data.toString("yyyy-MM-dd hh:mm:ss")
             self.update_date.emit(str(currTime))
-            time.sleep(0.2)
+            time.sleep(0.5)
 
 
 class Window(QDialog):
     def __init__(self):
         QDialog.__init__(self)
         self.setWindowTitle('PyQt 5界面实时更新例子')
-        self.resize(400, 100)
-        self.input = QLineEdit(self)
-        self.input.resize(400, 100)
+        self.resize(600, 400)
+        self.input = QTextEdit(self)
+        self.input.resize(400, 400)
+        self.input.setFocusPolicy(Qt.NoFocus)
         self.initUI()
 
     def initUI(self):
@@ -39,7 +42,8 @@ class Window(QDialog):
 
     # 将当前时间输出到文本框
     def handleDisplay(self, data):
-        self.input.setText(data)
+        self.input.append(data)
+        self.input.moveCursor(QTextCursor.End)
 
 
 if __name__ == '__main__':
