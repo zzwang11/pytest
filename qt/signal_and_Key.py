@@ -8,6 +8,7 @@ import sys
 from PyQt5.QtCore import pyqtSignal, QObject, Qt, pyqtSlot
 from PyQt5.QtWidgets import QWidget, QApplication, QGroupBox, QPushButton, QLabel, QCheckBox, QSpinBox, QHBoxLayout, \
     QComboBox, QGridLayout
+import PyQt5.QtGui
 
 
 class SignalEmit(QWidget):
@@ -39,6 +40,7 @@ class SignalEmit(QWidget):
 
         self.setGeometry(300, 300, 290, 150)
         self.setWindowTitle('defined signal')
+        self.setWindowIcon(PyQt5.QtGui.QIcon('./img/cartoon4.ico'))
         self.show()
 
     def creatContorls(self, title):
@@ -63,6 +65,7 @@ class SignalEmit(QWidget):
         controlsLayout.addWidget(self.previewStatus, 3, 0)
         controlsLayout.addWidget(self.previewButton, 3, 1)
         self.controlsGroup.setLayout(controlsLayout)
+
 
     def creatResult(self, title):
         self.resultGroup = QGroupBox(title)
@@ -96,6 +99,11 @@ class SignalEmit(QWidget):
 
         if event.key() == Qt.Key_F1:
             self.helpSignal.emit("help message")
+        if event.key() == Qt.Key_S:
+            if QApplication.keyboardModifiers() == Qt.ControlModifier:
+                self.helpSignal.emit('gan! press ctrl+s')
+        # Qt.AltModifier
+        # Qt.ShiftModifier
 
     def showHelpMessage(self, message):
         self.resultLabel.setText(message)
