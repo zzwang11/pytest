@@ -5,7 +5,7 @@ frequencyRange = [f1 f2]; % 起始频率
 % Number of points in measurement
 numPoints = NN;
 
-instrObj = visa('agilent', instrumentVISAAddress); % 创立链接。
+instrObj = visa_t('agilent', instrumentVISAAddress); % 创立链接。
 instrObj.InputBufferSize = 10e6; % set buffer
 instrObj.ByteOrder = 'littleEndian';
 fopen(instrObj);

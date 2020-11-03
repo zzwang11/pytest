@@ -6,7 +6,7 @@
 import visa
 import time
 import numpy as np
-import OSAtunics
+import visa_t.OSAtunics
 import matplotlib.pyplot
 
 
@@ -54,7 +54,7 @@ step = 0.001
 wlrange = np.arange(float(wlstart), float(wlstop), step)
 
 # Create a OSA instance and initialize
-osa = OSAtunics.OSA()
+osa = visa_t.OSAtunics.OSA()
 osa.span(3.7)
 time.sleep(0.5)
 
