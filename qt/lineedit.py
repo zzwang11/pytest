@@ -24,7 +24,8 @@ class lineedit(QWidget):
         lin4.setValidator(QDoubleValidator(1.11, 11.33, 2))
         lin5.textChanged.connect(self.txtchange)
         lin5.editingFinished.connect(self.finishi)
-        btn.clicked.connect(lambda :self.remove_c(self.lin1))
+        # btn.clicked.connect(lambda :self.remove_c(self.lin1))
+        btn.clicked.connect(self.printx)
         self.fo = QFormLayout()
         self.fo.addRow('IP:',self.lin1)
         self.fo.addRow('mac:',lin2)
@@ -34,6 +35,7 @@ class lineedit(QWidget):
         self.fo.addRow(btn)
         print(self.lin1.parent())
         print(self.lin1.parentWidget())
+
 
         self.setLayout(self.fo)
         print(self.lin1.parent())
@@ -48,6 +50,8 @@ class lineedit(QWidget):
         # self.fo.removeWidget(x)
         sip.delete(x)
         print(sip.isdeleted(x))
+    def printx(self):
+        print(self.lin1.text())
 
 
 if __name__ == '__main__':
