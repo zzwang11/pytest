@@ -5,7 +5,7 @@
       <sourceFolder url="file://$MODULE_DIR$/qt" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/bishe" />
     </content>
-    <orderEntry type="jdk" jdkName="Python 3.7 (pythonProject)" jdkType="Python SDK" />
+    <orderEntry type="jdk" jdkName="Python 3.7 (pytest)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TestRunnerService">
